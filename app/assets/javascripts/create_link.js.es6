@@ -31,6 +31,7 @@ function getLinkData() {
  }
 }
 function renderLinks(links) {
+
   links.forEach(function(link){
     renderLink(link);
   })

@@ -4,7 +4,7 @@ class Api::V1::LinksController < ApplicationController
     if current_user
       render json: current_user.links, status: 200
     else
-      render json: @link.errors.full_messages, status: 401
+      render json: "Unauthorized", status: 401
     end
   end
 
@@ -13,13 +13,9 @@ class Api::V1::LinksController < ApplicationController
     link.user_id = current_user.id
     if link.valid_url?(link.url) && link.save
       render json: link, status: 201
-      # flash[:success] = "Link created!"
     else
-      # flash[:danger] = "Please enter a title" if link.title.empty?
-      # flash[:danger] = "Invalid URI!" if !link.valid_url?(link.url)
       render json: "No title was entered!", status: 400 if link.title.empty?
       render json: "Invalid URI!", status: 400 if !link.valid_url?(link.url)
-
     end
   end
 

@@ -9,7 +9,7 @@ RSpec.describe "can create links", :js => :true do
     fill_in "URL:", :with => "http://turing.io"
     click_on "Add Link"
 
-    within('#links-list') do
+    within('#link-table-body') do
       expect(page).to have_text("Turing")
       expect(page).to have_text("http://turing.io")
     end
@@ -22,7 +22,7 @@ RSpec.describe "can create links", :js => :true do
     fill_in "URL:", :with => "http://turing.io"
     click_on "Add Link"
 
-    within('#links-list') do
+    within('#link-table-body') do
       expect(page).to_not have_text("http://turing.io")
     end
   end
@@ -35,7 +35,7 @@ RSpec.describe "can create links", :js => :true do
     fill_in "URL:", :with => "turing.com"
     click_on "Add Link"
 
-    within('#links-list') do
+    within('#link-table-body') do
       expect(page).to_not have_text("Turing")
       expect(page).to_not have_text("turing.com")
     end

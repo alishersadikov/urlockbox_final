@@ -1,11 +1,14 @@
 class Api::V1::LinksController < ApplicationController
 
   def create
-    @link = Link.new link_params
-    if @link.save
-      render json: @link, status: 201
+    link = Link.new link_params
+    if link.valid_url?(link.url) && link.save
+      render json: link, status: 201
+      # flash[:success] = "Link created!"
     else
-      render json: @link.errors.full_messages, status: 500
+      render json: "Please enter a title", status: 400
+      render json: "Invalid URI!", status: 400
+
     end
   end
 

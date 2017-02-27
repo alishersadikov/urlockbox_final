@@ -24,7 +24,8 @@ class Api::V1::LinksController < ApplicationController
     link.assign_attributes link_params
     just_read = link.read_changed? && link.read
     if link.valid_url?(link.url) && link.save
-      Read.create(link: link) if just_read
+
+       if just_read
       head :no_content
     else
       render json: "No title was entered!", status: 400 if link.title.empty?

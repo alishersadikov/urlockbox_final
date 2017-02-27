@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     else
       flash[:danger] = "This email has been used!" if User.find_by(email: user.email)
       flash[:danger] = "Password mismatch!" if user.password != user.password_confirmation
+      flash[:danger] = "Please enter password confirmation!" if !user.password_confirmation
       redirect_to :signup
     end
   end

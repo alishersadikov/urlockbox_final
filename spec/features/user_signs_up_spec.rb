@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature "user visits sign up path" do
   scenario "signs up for an account" do
-
     visit signup_path
 
     fill_in "user[email]", with: "test@example.com"
@@ -22,13 +21,11 @@ feature "user visits sign up path" do
     fill_in "user[password]", with: "password2"
     fill_in "user[password_confirmation]", with: "password2"
     click_on "Submit"
-    save_and_open_page
 
     expect(page).to have_content("This email has been used!")
   end
 
   scenario "signs up with non-matching passwords" do
-
     visit signup_path
 
     fill_in "user[email]", with: "test@example.com"

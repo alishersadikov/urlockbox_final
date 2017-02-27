@@ -5,12 +5,17 @@ $(document).ready(function(){
   $newLinkUrl  = $("#link-url");
 
   $("#new-link").on('submit', createLink);
+  displayLinks();
 })
+
+function displayLinks() {
+  $.get("/api/v1/links")
+   .then( renderLinks )
+   .fail( displayFailure )
+}
 
 function createLink (event){
   event.preventDefault();
-
-  console.log("win")
 
   var link = getLinkData();
 
@@ -25,10 +30,15 @@ function getLinkData() {
    url: $newLinkUrl.val()
  }
 }
+function renderLinks(links) {
+  links.forEach(function(link){
+    renderLink(link);
+  })
+}
 
 function renderLink(link){
   $("#links-list").append( linkHTML(link) )
-  // clearLink();
+  clearLink();
 }
 
 function linkHTML(link) {

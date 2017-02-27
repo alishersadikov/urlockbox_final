@@ -37,25 +37,20 @@ function renderLinks(links) {
 }
 
 function renderLink(link){
-  $("#links-list").append( linkHTML(link) )
+  $("#link-table-body").append( linkHTML(link) )
   clearLink();
 }
 
 function linkHTML(link) {
 
-    return `<div class='link' data-id='${link.id}' id="link-${link.id}">
-              <p class='link-title'>${ link.title }</p>
-              <p class='link-url'>${ link.url }</p>
-
-              <p class="link_read">
-                ${ link.read }
-              </p>
-              <p class="link_buttons">
-                <button class="mark-read">Mark as Read</button>
-                <button class='edit-link'>Edit</button>
-                <button class='delete-link'>Delete</button>
-              </p>
-            </div>`
+    return `<tr class='link' data-id='${link.id}' id="link-${link.id}">
+              <td class='link-title'>${ link.title }</td>
+              <td class='link-url'>${ link.url }</td>
+              <td class="link_read">${ link.read }</td>
+              <td><button class="mark-read">Mark as Read</button></td>
+              <td><button class='edit-link' data=>Edit</button></td>
+              <td><button class='delete-link'>Delete</button></td>
+            </tr>`
 }
 
 function clearLink() {

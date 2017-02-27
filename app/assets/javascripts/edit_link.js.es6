@@ -16,5 +16,16 @@ $(document).ready(function(){
 })
 
 function editLink(linkId, newContent, type){
-
+  var link;
+  if (type=='link-url') {
+    link = {url: newContent};
+  }
+  else if (type=='link-title') {
+    link = {title: newContent};
+  }
+  $.ajax({
+    url: '/api/v1/links/' + linkId,
+    method: 'PATCH',
+    data: link
+  });
 }

@@ -11,7 +11,7 @@ feature "user visits login path" do
     click_on "Submit"
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content("Successfully logged in")
+    expect(page).to have_content("Login successful!")
     expect(page).to have_content("Logged in with #{user.email}")
   end
 
@@ -20,10 +20,10 @@ feature "user visits login path" do
 
     visit login_path
 
-    fill_in "session[email]", with: user.email
-    fill_in "session[password]", with: "wrong_password"
-    click_on "Login"
+    fill_in "email", with: user.email
+    fill_in "password", with: "wrong_password"
+    click_on "Submit"
 
-    expect(page).to have_content("Something went wrong. Try again")
+    expect(page).to have_content("Login unsuccessful!")
   end
 end

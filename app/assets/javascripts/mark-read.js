@@ -10,6 +10,7 @@ $(document).ready(function(){
       url: '/api/v1/links/' + linkId,
       method: 'PATCH',
       data: {read: true}
-    });
+    })
+      .done( displayLinks );
   })
 })

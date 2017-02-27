@@ -28,6 +28,7 @@ function editLink(linkId, newContent, type){
     method: 'PATCH',
     data: link
   })
+    .done( displayLinks )
     .fail( displayFailure )
 }
 

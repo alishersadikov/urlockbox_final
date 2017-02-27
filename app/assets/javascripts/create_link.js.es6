@@ -49,7 +49,6 @@ function linkHTML(link) {
               <td class='link-url' id='${link.id}' contenteditable='true'>${ link.url }</td>
               <td class="link_read">${ link.read }</td>
               <td><button class="mark-read">Mark as Read</button></td>
-              <td><button class='delete-link'>Delete</button></td>
             </tr>`
 }
 

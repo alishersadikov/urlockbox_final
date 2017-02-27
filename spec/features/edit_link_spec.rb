@@ -1,43 +1,27 @@
 require "rails_helper"
 
 RSpec.describe "can edit links", :js => :true do
-  scenario "Edit link with valid data" do
+  scenario "Edit link with a new title" do
     user = User.create(email: "test@example.com", password: "password")
     user.links.create(title: "Turing", url: "http://turing.io")
     log_in(user)
-    save_and_open_page
-    click_on "Edit"
 
-    # within('#links-list') do
-    #   expect(page).to have_text("Turing")
-    #   expect(page).to have_text("http://turing.io")
-    # end
+    element = find('td.link-title')
+    element.set("Turingggggg")
+    page.find("body").click
+
+    expect(page).to have_content("Turingggggg")
+  end
+
+  scenario "Edit link with an invalid url" do
+    user = User.create(email: "test@example.com", password: "password")
+    user.links.create(title: "Turing", url: "http://turing.io")
+    log_in(user)
+    element = find('td.link-url')
+    element.set("turing")
+    page.find("body").click
+
+    expect(Link.last.url).to_not eq("turing")
+    expect(Link.last.url).to eq("http://turing.io")
   end
 end
-#
-#   scenario "Create a new link without title" do
-#     user = User.create(email: "test@example.com", password: "password")
-#     log_in(user)
-#
-#     fill_in "URL:", :with => "http://turing.io"
-#     click_on "Add Link"
-#
-#     within('#links-list') do
-#       expect(page).to_not have_text("http://turing.io")
-#     end
-#   end
-#
-#   scenario "Create a new link with invalid url" do
-#     user = User.create(email: "test@example.com", password: "password")
-#     log_in(user)
-#
-#     fill_in "Title:", :with => "Turing"
-#     fill_in "URL:", :with => "turing.com"
-#     click_on "Add Link"
-#
-#     within('#links-list') do
-#       expect(page).to_not have_text("Turing")
-#       expect(page).to_not have_text("turing.com")
-#     end
-#   end
-# end

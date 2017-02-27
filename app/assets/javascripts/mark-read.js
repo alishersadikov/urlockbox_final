@@ -11,6 +11,6 @@ $(document).ready(function(){
       method: 'PATCH',
       data: {read: true}
     })
-      .done( displayLinks );
+      .done( displayLinks() );
   })
 })

@@ -6,8 +6,10 @@ class Api::V1::LinksController < ApplicationController
       render json: link, status: 201
       # flash[:success] = "Link created!"
     else
-      render json: "Please enter a title", status: 400
-      render json: "Invalid URI!", status: 400
+      # flash[:danger] = "Please enter a title" if link.title.empty?
+      # flash[:danger] = "Invalid URI!" if !link.valid_url?(link.url)
+      render json: "No title was entered!", status: 400 if link.title.empty?
+      render json: "Invalid URI!", status: 400 if !link.valid_url?(link.url)
 
     end
   end

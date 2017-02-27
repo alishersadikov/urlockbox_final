@@ -19,6 +19,8 @@ gem 'react-rails'
 gem 'sprockets-es6'
 gem 'rb-readline'
 gem 'unicorn'
+gem 'faraday'
+gem 'thin'
 
 # gem 'capistrano-rails', group: :development
 

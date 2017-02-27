@@ -17,8 +17,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'better_errors', group: :development
 gem 'react-rails'
 gem 'sprockets-es6'
-
-# gem 'unicorn'
+gem 'rb-readline'
+gem 'unicorn'
 
 # gem 'capistrano-rails', group: :development
 

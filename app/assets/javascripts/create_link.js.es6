@@ -1,6 +1,7 @@
 var $newLinkTitle, $newLinkUrl;
 
 $(document).ready(function(){
+
   $newLinkTitle = $("#link-title");
   $newLinkUrl  = $("#link-url");
 
@@ -44,8 +45,8 @@ function renderLink(link){
 function linkHTML(link) {
 
     return `<tr class='link' data-id='${link.id}' id="link-${link.id}">
-              <td class='link-title' contenteditable='true'>${ link.title }</td>
-              <td class='link-url' contenteditable='true'>${ link.url }</td>
+              <td class='link-title' id='${link.id}' contenteditable='true'>${ link.title }</td>
+              <td class='link-url' id='${link.id}' contenteditable='true'>${ link.url }</td>
               <td class="link_read">${ link.read }</td>
               <td><button class="mark-read">Mark as Read</button></td>
               <td><button class='edit-link' data=>Edit</button></td>

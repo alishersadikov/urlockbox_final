@@ -1,7 +1,20 @@
 $(document).ready(function(){
-  $(".edit-link").on('submit', editLink);
+  $('tbody').on('blur', '.link-url', function(){
+    var linkId = this.id;
+    var newContent = this.textContent;
+    var type = this.className;
+    editLink(linkId, newContent, type);
+  });
+
+  $('tbody').on('blur', '.link-title', function(){
+    var linkId = this.id;
+    var newContent = this.textContent;
+    var type = this.className;
+    editLink(linkId, newContent, type);
+  });
+
 })
 
-function editLink() {
-  debugger; 
+function editLink(linkId, newContent, type){
+
 }

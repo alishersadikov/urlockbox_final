@@ -10,6 +10,8 @@ feature "user visits sign up path" do
     fill_in "user[password_confirmation]", with: "password"
     click_on "Submit"
 
+
+
     expect(current_path).to eq(links_path)
     expect(page).to have_content("Logged in with test@example.com")
   end

@@ -11,7 +11,6 @@ $(document).ready(function(){
 function displayLinks() {
   $.get("/api/v1/links")
    .then( renderLinks )
-   .fail( displayFailure )
 }
 
 function createLink (event){

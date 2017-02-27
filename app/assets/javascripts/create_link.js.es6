@@ -37,7 +37,7 @@ function renderLinks(links) {
 }
 
 function renderLink(link){
-  $("#link-table-body").append( linkHTML(link) )
+  $("#link-table-body").prepend( linkHTML(link) )
   clearLink();
 }
 

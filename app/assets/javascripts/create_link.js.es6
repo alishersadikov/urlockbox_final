@@ -44,8 +44,8 @@ function renderLink(link){
 function linkHTML(link) {
 
     return `<tr class='link' data-id='${link.id}' id="link-${link.id}">
-              <td class='link-title'>${ link.title }</td>
-              <td class='link-url'>${ link.url }</td>
+              <td class='link-title' contenteditable='true'>${ link.title }</td>
+              <td class='link-url' contenteditable='true'>${ link.url }</td>
               <td class="link_read">${ link.read }</td>
               <td><button class="mark-read">Mark as Read</button></td>
               <td><button class='edit-link' data=>Edit</button></td>

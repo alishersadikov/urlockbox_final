@@ -27,5 +27,10 @@ function editLink(linkId, newContent, type){
     url: '/api/v1/links/' + linkId,
     method: 'PATCH',
     data: link
-  });
+  })
+    .fail( displayFailure )
+}
+
+function displayFailure(failureData){
+  alert("FAILED attempt to create new Link: " + failureData.responseText);
 }

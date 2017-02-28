@@ -44,17 +44,21 @@ function renderLink(link){
 
 function linkHTML(link) {
     var buttonText;
+    var readStatusClass;
+
     if (link.read == true) {
       buttonText = "Mark as Unread"
+      readStatusClass = 'status-link-read'
     } else {
       buttonText = "Mark as Read"
+      readStatusClass = 'status-link-unread'
     }
 
-    return `<tr class='link' data-id='${link.id}' id="link-${link.id}">
+    return `<tr class='link ${readStatusClass}' data-id='${link.id}' id="link-${link.id}">
               <td class='link-title' id='${link.id}' contenteditable='true'>${ link.title }</td>
               <td class='link-url' id='${link.id}' contenteditable='true'>${ link.url }</td>
-              <td class="link_read">${ link.read }</td>
-              <td class="status">${ link.hotread_status }</td>
+              <td class=''>${link.read}</td>
+              <td class="status">${link.hotread_status}</td>
               <td><button class="mark-read">${ buttonText }</button></td>
             </tr>`
 }

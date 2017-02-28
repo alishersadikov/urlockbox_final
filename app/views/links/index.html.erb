@@ -1,21 +1,42 @@
-<form id="new-link">
-  <label>URL:
-    <input id="link-url">
-  </label>
-  <label>Title:
-    <input id="link-title">
-  </label>
-  <input type="submit" value="Add Link">
-</form>
+<% if current_user %>
 
-<div id="links-list"></div>
+  <h3>Logged in with <%=current_user.email%></h3>
+  <h4>Add a new link below:</h4>
+  <form id="new-link">
+    <label>URL:
+      <input id="link-url">
+    </label>
+    <label>Title:
+      <input id="link-title">
+    </label>
+    <input type="submit" value="Add Link">
+  </form>
 
-<h2>Hot Reads!</h2>
-<ol id="hot-reads">
-<% @hot_links.each do |read| %>
-  <li class='hot-read'>
-    <a href="<%= read.url %>"><%= read.url %></a>
-  </li>
+  <div>
+    <div class="">
+      Filter by title:<input id="title-filter-input">
+    </div>
+
+    <div>
+      Filter by url:<input id="url-filter-input">
+    </div>
+    <button id='filter-read'>Filter read</button>
+    <button id='filter-unread'>Filter unread</button>
+    <button id='filter-all'>Display All</button>
+  </div>
+
+    <table id="link-table">
+      <tr>
+        <th>Title</th>
+        <th>Link</th>
+        <th>Read?</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+      <tbody id="link-table-body">
+      </tbody>
+    </table>
+
+
+
 <% end %>
-</ol>
-<img src="https://m.popkey.co/4c7272/QL6mJ.gif">

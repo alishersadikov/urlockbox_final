@@ -1,16 +1,21 @@
 var $newLinkTitle, $newLinkUrl;
 
 $(document).ready(function(){
+
   $newLinkTitle = $("#link-title");
   $newLinkUrl  = $("#link-url");
 
   $("#new-link").on('submit', createLink);
+  displayLinks();
 })
+
+function displayLinks() {
+  $.get("/api/v1/links")
+   .then( renderLinks )
+}
 
 function createLink (event){
   event.preventDefault();
-
-  console.log("win")
 
   var link = getLinkData();
 
@@ -25,27 +30,33 @@ function getLinkData() {
    url: $newLinkUrl.val()
  }
 }
+function renderLinks(links) {
+  $("#link-table-body").slice(0).empty()
+  links.forEach(function(link){
+    renderLink(link);
+  })
+}
 
 function renderLink(link){
-  $("#links-list").append( linkHTML(link) )
-  // clearLink();
+  $("#link-table-body").prepend( linkHTML(link) )
+  clearLink();
 }
 
 function linkHTML(link) {
+    var buttonText;
+    if (link.read == true) {
+      buttonText = "Mark as Unread"
+    } else {
+      buttonText = "Mark as Read"
+    }
 
-    return `<div class='link' data-id='${link.id}' id="link-${link.id}">
-              <p class='link-title'>${ link.title }</p>
-              <p class='link-url'>${ link.url }</p>
-
-              <p class="link_read">
-                ${ link.read }
-              </p>
-              <p class="link_buttons">
-                <button class="mark-read">Mark as Read</button>
-                <button class='edit-link'>Edit</button>
-                <button class='delete-link'>Delete</button>
-              </p>
-            </div>`
+    return `<tr class='link' data-id='${link.id}' id="link-${link.id}">
+              <td class='link-title' id='${link.id}' contenteditable='true'>${ link.title }</td>
+              <td class='link-url' id='${link.id}' contenteditable='true'>${ link.url }</td>
+              <td class="link_read">${ link.read }</td>
+              <td class="status">${ link.hotread_status }</td>
+              <td><button class="mark-read">${ buttonText }</button></td>
+            </tr>`
 }
 
 function clearLink() {
@@ -54,5 +65,5 @@ function clearLink() {
 }
 
 function displayFailure(failureData){
-  console.log("FAILED attempt to create new Link: " + failureData.responseText);
+  alert("FAILED attempt to create new Link: " + failureData.responseText);
 }

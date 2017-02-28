@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
   def index
-    @hot_links = Link.hot
+    HotreadsService.get_hotreads
   end
 end

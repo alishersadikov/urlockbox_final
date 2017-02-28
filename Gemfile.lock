@@ -24,6 +24,11 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.10.4)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi (= 0.1.1.beta6)
     activejob (5.0.0.1)
       activesupport (= 5.0.0.1)
       globalid (>= 0.3.6)
@@ -62,6 +67,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    case_transform (0.2)
+      activesupport
     cliver (0.3.2)
     coderay (1.1.1)
     coffee-rails (4.1.1)
@@ -73,17 +80,21 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
+    daemons (1.2.4)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
+    eventmachine (1.2.3)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    faraday (0.10.1)
+      multipart-post (>= 1.2, < 3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -95,6 +106,11 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    jsonapi (0.1.1.beta6)
+      jsonapi-parser (= 0.1.1.beta3)
+      jsonapi-renderer (= 0.1.1.beta1)
+    jsonapi-parser (0.1.1.beta3)
+    jsonapi-renderer (0.1.1.beta1)
     kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -109,6 +125,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -212,6 +229,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    thin (1.7.0)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -237,6 +258,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (~> 0.10.0)
   awesome_print
   bcrypt (~> 3.1.7)
   better_errors
@@ -245,6 +267,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
+  faraday
   jbuilder (~> 2.0)
   jquery-rails
   launchy
@@ -262,6 +285,7 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   sprockets-es6
+  thin
   uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)

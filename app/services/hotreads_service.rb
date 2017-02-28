@@ -10,9 +10,8 @@ class HotreadsService
     hotreads = JSON.parse(response.body, symbolize_names: true)
     hotreads.each do |hotread|
       link = Link.find_by(url: hotread[:url])
-      read = Read.find_by(link_id: link.id)
-      if read
-        read.update_attributes(count: hotread[:hit_count])
+      if Read.find_by(link_id: link.id)
+        Read.find_by(link_id: link.id).update_attributes(count: hotread[:hit_count])
       else
         Read.create(link: link, count: hotread[:hit_count])
       end

@@ -21,6 +21,7 @@ gem 'rb-readline'
 gem 'unicorn'
 gem 'faraday'
 gem 'thin'
+gem 'active_model_serializers', '~> 0.10.0'
 
 # gem 'capistrano-rails', group: :development
 

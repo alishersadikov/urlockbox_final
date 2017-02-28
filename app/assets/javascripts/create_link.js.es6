@@ -31,7 +31,6 @@ function getLinkData() {
  }
 }
 function renderLinks(links) {
-
   links.forEach(function(link){
     renderLink(link);
   })
@@ -54,6 +53,7 @@ function linkHTML(link) {
               <td class='link-title' id='${link.id}' contenteditable='true'>${ link.title }</td>
               <td class='link-url' id='${link.id}' contenteditable='true'>${ link.url }</td>
               <td class="link_read">${ link.read }</td>
+              <td class="status">${ link.hotread_status }</td>
               <td><button class="mark-read">${ buttonText }</button></td>
             </tr>`
 }

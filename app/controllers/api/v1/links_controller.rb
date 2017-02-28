@@ -16,6 +16,7 @@ class Api::V1::LinksController < ApplicationController
     else
       render json: "No title was entered!", status: 400 if link.title.empty?
       render json: "Invalid URI!", status: 400 if !link.valid_url?(link.url)
+      render json: "Link already exists!", status: 400 if Link.find_by(url: link.url)
     end
   end
 

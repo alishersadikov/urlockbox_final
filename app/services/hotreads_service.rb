@@ -17,5 +17,5 @@ class HotreadsService
   #       Read.create(link: link, count: hotread[:hit_count])
   #     end
   #   end
-  # end
+  end
 end

@@ -4,7 +4,7 @@
 To setup the application locally, first clone it down. 
 Then change into the directory and run the following on your terminal: 
 ```
-bundle exec bundle install
+bundle install
 bundle exec rake db:create
 bundle exec rake db:migrate
 ```

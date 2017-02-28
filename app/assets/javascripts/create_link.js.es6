@@ -31,6 +31,7 @@ function getLinkData() {
  }
 }
 function renderLinks(links) {
+  $("#link-table-body").slice(0).empty()
   links.forEach(function(link){
     renderLink(link);
   })

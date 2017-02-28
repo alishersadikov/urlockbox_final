@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "can create links", :js => :true do
-  scenario "Create a new link with valid data" do
+  it "Create a new link with valid data" do
     user = User.create(email: "test@example.com", password: "password")
     log_in(user)
 
@@ -15,7 +15,7 @@ RSpec.describe "can create links", :js => :true do
     end
   end
 
-  scenario "Create a new link without title" do
+  it "Create a new link without title" do
     user = User.create(email: "test@example.com", password: "password")
     log_in(user)
 
@@ -27,7 +27,7 @@ RSpec.describe "can create links", :js => :true do
     end
   end
 
-  scenario "Create a new link with invalid url" do
+  it "Create a new link with invalid url" do
     user = User.create(email: "test@example.com", password: "password")
     log_in(user)
 

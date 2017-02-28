@@ -13,6 +13,7 @@ To create the database in the test environment, run:
 `
 rake db:test:prepare
 `
+
 To be able to run the JavaScript tests, run : 
 `npm install phantomjs -g`
 

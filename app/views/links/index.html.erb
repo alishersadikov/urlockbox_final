@@ -1,42 +1,46 @@
-<% if current_user %>
+<% if logged_in? %>
+  <%= link_to "Log out", logout_path, method: "delete" %>
 
-  <h3>Logged in with <%=current_user.email%></h3>
-  <h4>Add a new link below:</h4>
-  <form id="new-link">
-    <label>URL:
-      <input id="link-url">
-    </label>
-    <label>Title:
-      <input id="link-title">
-    </label>
-    <input type="submit" value="Add Link">
-  </form>
-
-  <div>
-    <div class="">
-      Filter by title:<input id="title-filter-input">
+    <h3>Logged in with <%=current_user.email%></h3>
+    <div class="add-new-link">
+      <h4>Add a new link below:</h4>
+      <form id="new-link">
+        <label>URL:
+          <input id="link-url">
+        </label>
+        <label>Title:
+          <input id="link-title">
+        </label>
+        <input type="submit" value="Add Link" class="text-input">
+      </form>
     </div>
 
-    <div>
-      Filter by url:<input id="url-filter-input">
+    <div class='filtering'>
+      <div class="title-filter">
+        Filter by title: <input id="title-filter-input">
+      </div>
+      <div class="url-filter">
+        Filter by url: <input id="url-filter-input">
+      </div>
+      <button id='filter-read'>Filter read</button>
+      <button id='filter-unread'>Filter unread</button>
+      <button id='filter-all'>Display All</button>
     </div>
-    <button id='filter-read'>Filter read</button>
-    <button id='filter-unread'>Filter unread</button>
-    <button id='filter-all'>Display All</button>
-  </div>
 
-    <table id="link-table">
-      <tr>
-        <th>Title</th>
-        <th>Link</th>
-        <th>Read?</th>
-        <th>Status</th>
-        <th></th>
-      </tr>
-      <tbody id="link-table-body">
-      </tbody>
-    </table>
-
-
-
+      <table id="link-table">
+        <tr>
+          <th>Title</th>
+          <th>Link</th>
+          <th>Read?</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+        <tbody id="link-table-body">
+        </tbody>
+      </table>
+<% else %>
+  <h1>WELCOME TO URLOCKBOX!!!</h1>
+  <h2>You can sign up by <%= link_to "clicking here", signup_path %></h2>
+  <h2>Or</h2>
+  <h2><%= link_to "Log in", login_path %> if you have an account</h2>
 <% end %>

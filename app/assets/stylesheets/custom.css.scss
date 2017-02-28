@@ -5,3 +5,43 @@
 .status-link-unread {
   background-color: #b7ffc3;
 }
+
+.add-new-link {
+  text-align: center;
+}
+
+.filtering {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title-filter {
+  margin-top: 10px;
+}
+
+.url-filter {
+  margin-top: 20px;
+}
+
+#filter-read {
+  margin-top: 20px;
+}
+
+#link-table {
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+table, th, tr, td {
+  border: 1px solid black;
+}
+
+tr {
+  height: 35px;
+}
+
+button, .text-input {
+  background-color: #b7edff;
+  border-radius: 5px;
+}

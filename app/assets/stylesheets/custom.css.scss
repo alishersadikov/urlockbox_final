@@ -7,6 +7,7 @@
 }
 
 .add-new-link {
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -44,4 +45,19 @@ tr {
 button, .text-input {
   background-color: #b7edff;
   border-radius: 5px;
+}
+
+.notice {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.greeting {
+  margin-left: 20px;
+}
+
+.logout {
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
 }

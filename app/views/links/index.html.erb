@@ -1,7 +1,7 @@
 <% if current_user %>
 
   <h3>Logged in with <%=current_user.email%></h3>
-
+  <h4>Add a new link below:</h4>
   <form id="new-link">
     <label>URL:
       <input id="link-url">
@@ -11,6 +11,11 @@
     </label>
     <input type="submit" value="Add Link">
   </form>
+
+  <div>
+    Filter by title:<input id="title-filter-input">
+    Filter by url:<input id="url-filter-input">
+  </div>
 
     <table id="link-table">
       <tr>

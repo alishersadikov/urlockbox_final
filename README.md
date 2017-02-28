@@ -4,18 +4,24 @@
 To setup the application locally, first clone it down. 
 Then change into the directory and run the following on your terminal: 
 ```
-bundle install
-rake db:create
-rake db:migrate
+bundle exec bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
 ```
 To create the database in the test environment, run: 
 
 `
-rake db:test:prepare
+bundle exec rake db:test:prepare
 `
 
 To be able to run the JavaScript tests, run : 
 `npm install phantomjs -g`
+
+To run the automated test suite, run: 
+
+`
+bundle exec rspec
+`
 
 One thing to keep in mind about phantomjs is that id doesn't recognize es6. So if you write es6 you will need to make your file extenstion `.js.es6`. 
 
@@ -96,4 +102,8 @@ As an authenticated user, I can do the following in the URLockbox index without 
 
 [Production URL](https://stark-island-67627.herokuapp.com/)
 
-In addition, HotReads application [github repository](https://github.com/alishersadikov/hotreads-final) and [production url](https://fast-island-59356.herokuapp.com/). 
+In addition, check out the secondary application - HotReads too, [github repository](https://github.com/alishersadikov/hotreads-final) and [production url](https://fast-island-59356.herokuapp.com/). 
+
+Feel free to recreate the above challenges. 
+
+## Alisher Sadikov

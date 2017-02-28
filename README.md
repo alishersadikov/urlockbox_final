@@ -20,7 +20,7 @@ To be able to run the JavaScript tests, run :
 One thing to keep in mind about phantomjs is that id doesn't recognize es6. So if you write es6 you will need to make your file extenstion `.js.es6`. 
 
 The following functionality currently exists in the application: 
-## Sign Up, Sign In, and Sign Out
+### Sign Up, Sign In, and Sign Out
 
 Sign Up
 
@@ -39,7 +39,7 @@ Sign Out
 
 As an authenticated user viewing the index page, I should see a link to "Sign Out" and not see a link to "Sign In". This should redirect me back to the page that prompts me to "Log In or Sign Up".
 
-## Submitting and Viewing Links
+### Submitting and Viewing Links
 
 As an authenticated user viewing the main page (links#index), I should see a simple form to submit a link.
 
@@ -67,7 +67,7 @@ I can edit the title and/or the url of the link.
 
 I cannot change the url to an invalid url. Show the same error message as above.
 
-## Implementing a Service
+### Implementing a Service
 
 A second application, [Hot Reads](https://github.com/alishersadikov/hotreads-final) was built, that fulfills the following requirements.
 
@@ -81,16 +81,15 @@ If a link is in Hot Read's current top-10, mark it as "hot"
 If a link is currently number one in the top-10, mark it as "top link"
 This can be done via AJAX after the initial page load if you wish
 
-## Client-Side
+### Client-Side
 
 As an authenticated user, I can do the following in the URLockbox index without reloading the page:
 
-Create a new link, and see it in added to the top of the list. The JS is already written for this functionality. Just wire everything up correctly to get this to work.
-Mark a link as read or unread
-Next to each unread link I should see an option to "Mark as Read".
-Clicking this should visibly change the read status to true, and the change should persist.
-Next to each read link I should see an option to "Mark as Unread".
-Clicking this should change the read status to false, and the change should persist.
-Read links should be stylistically differentiated from unread links. You could gray them out or use a strike through or anything you think appropriately informs the user that their link is read or unread.
-Click a button or link to filter the list by "read" and "unread" status
-Filter the list of links by a search term as I type into a search box. Filter by both title and url with each key press.
+#### Mark a link as read or unread
+- Next to each unread link I should see an option to "Mark as Read".
+- Clicking this should visibly change the read status to true, and the change should persist.
+- Next to each read link I should see an option to "Mark as Unread".
+- Clicking this should change the read status to false, and the change should persist.
+- Read links should be stylistically differentiated from unread links. You could gray them out or use a strike through or anything you think appropriately informs the user that their link is read or unread.
+- Click a button or link to filter the list by "read" and "unread" status
+- Filter the list of links by a search term as I type into a search box. Filter by both title and url with each key press.

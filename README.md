@@ -19,13 +19,8 @@ To be able to run the JavaScript tests, run :
 
 One thing to keep in mind about phantomjs is that id doesn't recognize es6. So if you write es6 you will need to make your file extenstion `.js.es6`. 
 
-Section 1 - Sign Up, Sign In, and Sign Out
-
-Nota Bene:
-
-You should aim to complete user auth in the simplest way possible. Using Rails' "built-in" gem Bcrypt is the most straightforward and recommended way to implement this functionality.
-Set goals and manage your work so that you keep in mind what you need to do and how long you have to do it.
-As an unauthenticated user, when I visit the root of the application, /, I should be redirected to a page which prompts me to "Log In or Sign Up".
+The following functionality currently exists in the application: 
+## Sign Up, Sign In, and Sign Out
 
 Sign Up
 
@@ -44,7 +39,7 @@ Sign Out
 
 As an authenticated user viewing the index page, I should see a link to "Sign Out" and not see a link to "Sign In". This should redirect me back to the page that prompts me to "Log In or Sign Up".
 
-Section 2 - Submitting and Viewing Links
+## Submitting and Viewing Links
 
 As an authenticated user viewing the main page (links#index), I should see a simple form to submit a link.
 
@@ -72,9 +67,9 @@ I can edit the title and/or the url of the link.
 
 I cannot change the url to an invalid url. Show the same error message as above.
 
-Section 4 - Implementing a Service
+## Implementing a Service
 
-Build a second application, Hot Reads, that fulfills the following requirements.
+A second application, [Hot Reads](https://github.com/alishersadikov/hotreads-final) was built, that fulfills the following requirements.
 
 When a link is marked as read, the link's url is sent to Hot Reads, which creates a record of the "read". As mentioned in section 5, this is done without a refresh.
 
@@ -86,21 +81,7 @@ If a link is in Hot Read's current top-10, mark it as "hot"
 If a link is currently number one in the top-10, mark it as "top link"
 This can be done via AJAX after the initial page load if you wish
 
-Note Bene:
-
-In URLockbox you may use an HTTP request in a service to communicate between applications, but it would be even better to add a message queue or pub/sub channel between URLockbox and Hot Reads. No interaction with Hot Reads should appear in URLockbox controllers, but you already know to push logic down the stack.
-
-Section 5 - Client-Side
-
-Notes Bene:
-
-As we said before you do have complete autonomy on decisions like the tools you use so if you rather set up selenium for testing, you can.
-
-If you choose to do React you will need to rewrite the functionality that has been written using jQuery.
-
-Check the starter repo Readme for info on Poltergeist for integration testing
-
-Making AJAX requests between two different hosts/apps/domains will cause a CORS error. If you're unfamiliar with this, check out this documentation. How to implement this is up to you. You can find many rails resources to solve this error.
+## Client-Side
 
 As an authenticated user, I can do the following in the URLockbox index without reloading the page:
 
